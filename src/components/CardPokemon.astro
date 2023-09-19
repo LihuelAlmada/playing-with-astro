@@ -4,9 +4,13 @@ interface Props {
   url: string,
 }
 
+import {getPokemonById} from '../services/pokemons'
+
 const {name, url} = Astro.props
+
+const data = await getPokemonById(url)
 ---
 <article>
-  <h2>url #</h2>
+  <h2> #{data.id} Name: {name}</h2>
 </article>
 
