@@ -10,7 +10,12 @@ const {name, url} = Astro.props
 
 const data = await getPokemonById(url)
 ---
+
 <article>
   <h2> #{data.id} Name: {name}</h2>
+  <picture>
+    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={` looking for pokemon ${name} in the pokeball`} />
+  </picture>
 </article>
+
 
