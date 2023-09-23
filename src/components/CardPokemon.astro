@@ -9,13 +9,27 @@ import {getPokemonById} from '../services/pokemons'
 const {name, url} = Astro.props
 
 const data = await getPokemonById(url)
----
 
-<article>
+const shinyFamale = data.sprites.front_shiny_female ? true : false
+---
+<a
+  href={url}
+  class="rounded-lg border shadow-md bg-gray-800 border-gray-700 hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col"
+>
+<header class="p-4 flex-grow">
+  <span class="text-xs font-semibold mr-2 px-2.5 py-0.5 rounded bg-green-400 text-green-900"> Types</span>
   <h2> #{data.id} Name: {name}</h2>
-  <picture>
-    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={` looking for pokemon ${name} in the pokeball`} />
+</header>
+  <picture >
+    {shinyFamale ? 
+    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
+    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny_female} alt={`looking for pokemon ${name} in the pokeball`} />
+    :
+    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
+    }
+    
   </picture>
-</article>
+  <h2> #{data.id} Name: {name}</h2>
+</a>
 
 
