@@ -1,13 +1,14 @@
 ---
-import {getGlobalPokemons} from '../services/pokemons'
-import CardPokemon from './CardPokemon.astro'
+import {getGlobalPokemons, getPokemonByUrl} from '../services/pokemons'
+import Pokemon from './Pokemon.astro'
 
 const {results} = await getGlobalPokemons()
+
 ---
 <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
   {results.map((pokemon) => 
-      <CardPokemon name={pokemon.name} url={pokemon.url}/>
+      <Pokemon name={pokemon.name} url={pokemon.url}/>
     )
   }
 </div>

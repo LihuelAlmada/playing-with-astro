@@ -1,38 +1,37 @@
 ---
-interface Props {
-  name: string,
-  url: string,
+type Props = {
+  id: number;
 }
 
-import {getPokemonById} from '../services/pokemons'
+import {type pokemonResponse} from '../types/pokemonResponse'
+import {getPokemonByUrl} from '../services/pokemons'
 import TypesPokemon from './TypesPokemon.astro'
 
-const {name, url} = Astro.props
-const data = await getPokemonById(url)
+const { id } = Astro.props
 
 ---
 <a
-  href={url}
+  href={`/pokemon/${id}`}
   class="rounded-lg border shadow-md bg-gray-800 border-gray-700 hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col"
 >
 <header class="p-4 flex-grow">
  
-  {data.types.map(type => (
+  <!-- {types.map(type => (
   <TypesPokemon name={type.type.name} url={type.type.url}/>
-  ))}
+  ))} -->
 
-  <h2> #{data.id} Name: {name}</h2>
+  <h2> #{id}</h2>
 </header>
-  <picture >
-    {data.sprites.front_shiny_female ? 
-    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
-    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny_female} alt={`looking for pokemon ${name} in the pokeball`} />
+  <!-- <picture >
+    {sprites.front_shiny_female ? 
+    <img class="mb-5 rounded-lg" src={sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
+    <img class="mb-5 rounded-lg" src={sprites.front_shiny_female} alt={`looking for pokemon ${name} in the pokeball`} />
     :
-    <img class="mb-5 rounded-lg" src={data.sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
+    <img class="mb-5 rounded-lg" src={sprites.front_shiny} alt={`looking for pokemon ${name} in the pokeball`} />
     }
     
-  </picture>
-  <h2> #{data.id} Name: {name}</h2>
+  </picture> -->
+  <h2> #{id} Name:</h2>
 </a>
 
 
