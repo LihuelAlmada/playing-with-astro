@@ -8,9 +8,7 @@ export const getGlobalPokemons = async () => {
       "Content-Type": "application/json",
     },
   })
-
   const data = (await res.json()) as APIPokemonResponse
-
   return data
 }
 
@@ -21,10 +19,10 @@ export const getPokemonByUrl = async (url: string) => {
       "Content-Type": "application/json",
     },
   })
-
   const data = (await res.json()) as pokemonResponse
   return data
 }
+
 export const getPokemonById = async (id: string) => {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
     method: "GET",
@@ -32,10 +30,6 @@ export const getPokemonById = async (id: string) => {
       "Content-Type": "application/json",
     },
   })
-  
-  
   const data = (await res.json()) as pokemonResponse
-  console.log(data);
   return data
 }
-

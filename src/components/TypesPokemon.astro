@@ -3,11 +3,12 @@ interface Props {
   name: string;
   url:  string;
 }
-const { name, url } = Astro.props
+const { name } = Astro.props
 ---
-<span 
-class={name}> {name}</span>
 
+<span 
+  class={name}> {name}
+</span>
 <style>
   span{
     border-radius: 0.25rem/* 4px */;
