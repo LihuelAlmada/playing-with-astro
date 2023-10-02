@@ -7,10 +7,29 @@ interface Props {
 import {getPokemonByUrl} from '../services/pokemons'
 import CardPokemon from './CardPokemon.astro'
 
-const {name, url} = Astro.props
+const { url } = Astro.props
 const data = await getPokemonByUrl(url)
 
 ---
 <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-  <CardPokemon id={data.id} name={data.name} sprites={data.sprites}/>
+  <CardPokemon 
+    abilities={data.abilities}
+    base_experience={data.base_experience}
+    forms={data.forms}
+    game_indices={data.game_indices}
+    height={data.height}
+    held_items={data.held_items}
+    id={data.id}
+    is_default={data.is_default}
+    location_area_encounters={data.location_area_encounters}
+    moves={data.moves}
+    name={data.name}
+    order={data.order}
+    past_types={data.past_types}
+    species={data.species}
+    sprites={data.sprites}
+    stats={data.stats}
+    types={data.types}
+    weight={data.weight}
+  />
 </div>
