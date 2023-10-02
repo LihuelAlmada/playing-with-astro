@@ -30,8 +30,9 @@ import {
   type Stat, 
   type Type
 } from '../types/pokemonResponse'
+import TypesPokemon from './TypesPokemon.astro'
 
-const { id, name, sprites } = Astro.props
+const { id, name, sprites, types } = Astro.props
 ---
 
 <a
@@ -39,9 +40,9 @@ const { id, name, sprites } = Astro.props
   class="rounded-lg border shadow-md bg-gray-800 border-gray-700 hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col"
 >
 <header class="p-4 flex-grow">
-  <!-- {types.map(type => (
-  <TypesPokemon name={type.type.name} url={type.type.url}/>
-  ))} -->
+  {types.map(type => (
+    <TypesPokemon name={type.type.name} />
+  ))}
   <h2> #{id}</h2>
 </header>
   <picture>
