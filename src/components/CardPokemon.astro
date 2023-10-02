@@ -1,13 +1,28 @@
 ---
 type Props = {
-  id: number;
+  abilities:                Ability[];
+  base_experience:          number;
+  forms:                    Species[];
+  game_indices:             GameIndex[];
+  height:                   number;
+  held_items:               HeldItem[];
+  id:                       number;
+  is_default:               boolean;
+  location_area_encounters: string;
+  moves:                    Move[];
+  name:                     string;
+  order:                    number;
+  past_types:               any[];
+  species:                  Species;
+  sprites:                  Sprites;
+  stats:                    Stat[];
+  types:                    Type[];
+  weight:                   number;
 }
 
-import {type pokemonResponse} from '../types/pokemonResponse'
-import {getPokemonByUrl} from '../services/pokemons'
-import TypesPokemon from './TypesPokemon.astro'
+import {type Ability, type Species, type GameIndex, type HeldItem, type Move, type Sprites, type Stat, type Type} from '../types/pokemonResponse'
 
-const { id } = Astro.props
+const { id, name, sprites } = Astro.props
 
 ---
 <a
@@ -21,6 +36,8 @@ const { id } = Astro.props
   ))} -->
 
   <h2> #{id}</h2>
+  <img class="mb-5 rounded-lg" src={sprites.front_default} alt={`looking for pokemon ${name} in the pokeball`} />
+
 </header>
   <!-- <picture >
     {sprites.front_shiny_female ? 
@@ -31,7 +48,7 @@ const { id } = Astro.props
     }
     
   </picture> -->
-  <h2> #{id} Name:</h2>
+  <h2> #{id} Name: {name}</h2>
 </a>
 
 

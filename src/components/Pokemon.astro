@@ -12,5 +12,5 @@ const data = await getPokemonByUrl(url)
 
 ---
 <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-  <CardPokemon id={data.id}/>
+  <CardPokemon id={data.id} name={data.name} sprites={data.sprites}/>
 </div>
