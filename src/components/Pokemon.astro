@@ -10,8 +10,7 @@ import CardPokemon from './CardPokemon.astro'
 const { url } = Astro.props
 const data = await getPokemonByUrl(url)
 ---
-
-<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+{data.sprites.back_shiny_female &&
   <CardPokemon 
     abilities={data.abilities}
     base_experience={data.base_experience}
@@ -32,4 +31,4 @@ const data = await getPokemonByUrl(url)
     types={data.types}
     weight={data.weight}
   />
-</div>
+}
