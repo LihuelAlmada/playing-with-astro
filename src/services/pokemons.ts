@@ -2,7 +2,7 @@ import { type APIPokemonResponse} from '../types/APIPokemonResponse'
 import { type pokemonResponse} from '../types/pokemonResponse'
 
 export const getGlobalPokemons = async () => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`, {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10249&offset=0`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
